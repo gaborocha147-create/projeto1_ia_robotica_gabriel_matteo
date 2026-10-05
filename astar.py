@@ -53,7 +53,7 @@ class AStarPathfinder:
         free = self.map_array == 0
         dist = distance_transform_edt(free)
 
-        field = self.wall_influence * np.maximum(0, self.buffer_factor - dist)
+        field = self.wall_influence * np.maximum(0, self.buffer_factor - dist) ** 2
         field[self.map_array == 1] = np.inf
         
         radius = 2
